@@ -1,0 +1,52 @@
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8f5;
+      margin: 2rem;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 10px;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #bf360c;
+      font-weight: bold;
+    }
+    h2 {
+      color: #bf360c;
+    }
+    #orderSummary {
+      background: #fff;
+      border: 2px solid #bf360c;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-bottom: 2rem;
+    }
+    #orderSummary ul {
+      padding-left: 1.2rem;
+    }
+    #totalAmount {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #bf360c;
+      margin-bottom: 2rem;
+    }
+    input, button {
+      padding: 0.5rem;
+      width:60%;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      border: 1.5px solid #bf360c;
+    }
+    button {
+      background-color: #bf360c;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
