@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tiffin Menu - Restaurant</title>
+<link rel="stylesheet" href="background.css">
+</head>
+<body>
+<header>
+  <h1>Tiffin Menu - Delicious Indian Tiffins</h1>
+</header>
+<script>
+  function addItem(name, price) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      // Prevent duplicate entry
+      if (!cart.find(item => item.name === name)) {
+        cart.push({ name, price });
+      }
+      localStorage.setItem("cart", JSON.stringify(cart));
+    }
+
+    function goNext(page) {
+      window.location.href = page;
+    }
+
+    function submitOrder() {
+      window.location.href = "payment.html"; // Go to summary page
+    }
+  </script>
+<nav>
+  <ul>
+    <li><a href="QR Code.html">Home</a></li>
+    <li><a href="tiffins.html">Tiffins</a></li>
+    <li><a href="vege.html">Veg</a></li>
+    <li><a href="non veg.html">Non-Veg</a></li>
+    <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+    <li><a href="cooldrinks.html">Cool Drinks</a></li>
+    <li><a href="ice cream.html">Ice Creams</a></li>
+    <li><a href="payment.html">Payment</a></li>
+  </ul>
+</nav>
+
+<main>
+  <form id="tiffinForm">
+<div class="menu-row">
+  <div class="menu-card">
+    <div class="menu-item" data-price="50">
+      <img src="images/idli.jpg" alt="Idli" width="509" height="339" />
+      <div class="menu-details">
+        <h3>Idli</h3>
+        <p>₹50 per plate</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty1">Qty:</label>
+        <input type="number" id="qty1" name="idli" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="70">
+      <img src="images/dosa.jpg" alt="Dosa" width="509" height="339" />
+      <div class="menu-details">
+        <h3>Dosa</h3>
+        <p>₹70 per piece</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty2">Qty:</label>
+        <input type="number" id="qty2" name="dosa" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="60">
+      <img src="images/vada.jpg" alt="Vada" width="509" height="339" />
+      <div class="menu-details">
+        <h3>Vada</h3>
+        <p>₹60 per plate</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty3">Qty:</label>
+        <input type="number" id="qty3" name="vada" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="80">
+      <img src="images/upma.jpg" alt="Upma" width="509" height="339" />
+      <div class="menu-details">
+        <h3>Upma</h3>
+        <p>₹80 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty4">Qty:</label>
+        <input type="number" id="qty4" name="upma" min="0" value="0" />
+      </div>
+    </div>
+
+
+<div class="menu-item" data-price="60">
+      <img src="images/upma dosa.jpg" alt="Upma dosa"width="509" height="339" />
+      <div class="menu-details">
+        <h3>Upma dosa</h3>
+        <p>₹60 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty5">Qty:</label>
+        <input type="number" id="qty5" name="upma dosa" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="50">
+      <img src="images/bread omlette.jpg" alt="bread omlette" width="509" height="339" />
+      <div class="menu-details">
+        <h3>bread omlette</h3>
+        <p>₹50 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty6">Qty:</label>
+        <input type="number" id="qty6" name="bread omlette" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="60">
+      <img src="images/chapathi.jpg" alt="chapathi" width="509" height="339"/>
+      <div class="menu-details">
+        <h3>chapathi</h3>
+        <p>₹60 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty7">Qty:</label>
+        <input type="number" id="qty7" name="chapathi" min="0" value="0" />
+      </div>
+    </div>
+
+     <div class="menu-item" data-price="70">
+      <img src="images/chole bature.jpg" alt="chole bature" width="509" height="339" />
+      <div class="menu-details">
+        <h3>chole bature</h3>
+        <p>₹70 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty8">Qty:</label>
+        <input type="number" id="qty8" name="chole bature" min="0" value="0" />
+      </div>
+    </div>
+
+     <div class="menu-item" data-price="60">
+      <img src="images/masala dosa.jpg" alt="masala dosa" width="509" height="339" />
+      <div class="menu-details">
+        <h3>masala dosa</h3>
+        <p>₹60 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty9">Qty:</label>
+        <input type="number" id="qty9" name="masala dosa" min="0" value="0" />
+      </div>
+    </div>
+
+     <div class="menu-item" data-price="40">
+      <img src="images/mysore bonda.jpg" alt="mysore bonda" width="509" height="339" />
+      <div class="menu-details">
+        <h3>mysore bonda</h3>
+        <p>₹40 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty10">Qty:</label>
+        <input type="number" id="qty10" name="mysore bonda" min="0" value="0" />
+      </div>
+    </div>
+
+     <div class="menu-item" data-price="50">
+      <img src="images/parata.jpg" alt="parata" width="509" height="339"/>
+      <div class="menu-details">
+        <h3>parata</h3>
+        <p>₹50 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty11">Qty:</label>
+        <input type="number" id="qty11" name="parata" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="90">
+      <img src="images/rajma.jpg" alt="rajma" width="509" height="339"/>
+      <div class="menu-details">
+        <h3>rajma</h3>
+        <p>₹90 per serving</p>
+      </div>
+      <div class="menu-actions">
+        <label for="qty12">Qty:</label>
+        <input type="number" id="qty12" name="rajma" min="0" value="0" />
+      </div>
+    </div>
+</main>
+
+    <button type="button" onclick="goNext('non veg.html')">Next</button>
+<button type="button" onclick="submitOrder()">Submit</button>
+<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
+<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
+<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
+
+<div class="summary">
+  <div>Selected Items: <span id="selectedCount">0</span></div>
+  <div>Total Amount: ₹<span id="totalAmount">0</span></div>
+</div>
+
+<button type="button" id="orderBtn" class="submit-btn">Place Order</button>
+</form>
+
+
+</main>
+
+<script src="script.js"></script>
+<script src="common.js"></script>
+  <script>
+function saveOrderFromPage() {
+  const items = [];
+  let totalAmount = 0;
+  let totalItems = 0;
+
+  document.querySelectorAll(".menu-item").forEach(item => {
+    const name = item.querySelector("h3").textContent;
+    const price = parseFloat(item.getAttribute("data-price"));
+    const qty = parseInt(item.querySelector("input[type='number']").value) || 0;
+
+    if (qty > 0) {
+      items.push({
+        name,
+        price,
+        qty,
+        total: price * qty
+      });
+      totalAmount += price * qty;
+      totalItems += qty;
+    }
+  });
+
+  // 🔹 Get existing order (from other pages)
+  const existingOrder = JSON.parse(localStorage.getItem("orderItems")) || [];
+
+  // 🔹 Merge new items (replace if already exists)
+  items.forEach(newItem => {
+    const existingItem = existingOrder.find(i => i.name === newItem.name);
+    if (existingItem) {
+      existingItem.qty += newItem.qty;
+      existingItem.total += newItem.total;
+    } else {
+      existingOrder.push(newItem);
+    }
+  });
+
+  // 🔹 Save merged order
+  localStorage.setItem("orderItems", JSON.stringify(existingOrder));
+
+  console.log("✅ Saved items:", existingOrder);
+}
+
+// Next page navigation (saves before going)
+function goNext(page) {
+  saveOrderFromPage();
+  window.location.href = page;
+}
+
+// Go to payment page (save + redirect)
+function submitOrder() {
+  saveOrderFromPage();
+  window.location.href = "payment.html";
+}
+</script>
+
+
+</body>
+</html>
