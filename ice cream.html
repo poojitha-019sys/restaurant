@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ice Cream Menu - Restaurant</title>
+<link rel="stylesheet" href="background.css">
+</head>
+<body>
+  
+
+<h1>Ice Cream Menu</h1>
+<nav>
+  <ul>
+    <li><a href="QR Code.html">Home</a></li>
+    <li><a href="tiffins.html">Tiffins</a></li>
+    <li><a href="vege.html">Veg</a></li>
+    <li><a href="non veg.html">Non-Veg</a></li>
+    <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+    <li><a href="cooldrinks.html">Cool Drinks</a></li>
+    <li><a href="ice cream.html">Ice Creams</a></li>
+    <li><a href="payment.html">Payment</a></li>
+  </ul>
+</nav>
+<div class="container">
+  <form id="iceCreamForm">
+    <div class="menu-item" data-price="80">
+      <img src="images/mango icecream.jpg" alt="mango icecream" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>mango icecream</h3>
+        <p>₹80 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty1">Qty:</label>
+        <input type="number" id="qty1" name="mango icecream" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="100">
+      <img src="images/choclate icecream.jpg" alt="choclate icecream" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>choclate icecream</h3>
+        <p>₹100 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty2">Qty:</label>
+        <input type="number" id="qty2" name="choclate icecream" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="90">
+      <img src="images/strawberry icecream.jpg" alt="strawberry icecream" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>strawberry icecream</h3>
+        <p>₹90 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty3">Qty:</label>
+        <input type="number" id="qty3" name="strawberry icecream" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="70">
+      <img src="images/vannila icecream.jpg" alt="vannila icecream" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>vannila icecream</h3>
+        <p>₹70 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty4">Qty:</label>
+        <input type="number" id="qty4" name="vannila icecream" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="110">
+      <img src="images/pistachio icecream.jpg" alt="pistachio icecream" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>pistachio icecream</h3>
+        <p>₹110 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty5">Qty:</label>
+        <input type="number" id="qty5" name="pistachio icecream" min="0" value="0" />
+      </div>
+    </div>
+
+ 
+  <button type="button" onclick="goNext('cooldrinks.html')">previous</button>
+    <button type="button" onclick="goNext(' payment.html')">Next</button>
+<button type="button" id="orderBtn" class="submit-btn">Place Order</button>
+<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
+<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
+<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
+
+<div class="summary">
+  <div>Selected Items: <span id="selectedCount">0</span></div>
+  <div>Total Amount: ₹<span id="totalAmount">0</span></div>
+</div>
+<script src="script.js"></script>
+<script src="common.js"></script>
+</form>
+</main>
+</body>
+</html>
