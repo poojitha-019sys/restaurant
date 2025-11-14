@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>QR Code for Menu</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: orange;
+    background-image: url("C:\Users\Acer\Downloads\foodimage.jfif");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+     color: yellow;
+    }
+  </style>
+</head>
+<body>
+<h1>RESTAURANT</h1>
+  <h2>Scan to View Menu</h2>
+  <div id="qrcode" align="center" ></div>
+
+  <script>
+    const link = "https://example.com/tiffins.html";
+
+    new QRCode(document.getElementById("qrcode"), {
+      text: link,
+      width: 200,
+      height: 200,
+    });
+  </script>
+<nav>
+  <ul>
+    <li><a href="QR Code.html">Home</a></li>
+    <li><a href="tiffins.html">Tiffins</a></li>
+    <li><a href="vege.html">Veg</a></li>
+    <li><a href="non veg.html">Non-Veg</a></li>
+    <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+    <li><a href="cooldrinks.html">Cool Drinks</a></li>
+    <li><a href="ice cream.html">Ice Creams</a></li>
+    <li><a href="payment.html">Payment</a></li>
+  </ul>
+</nav>
+</body>
+</html>
