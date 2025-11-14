@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Menu - Restaurant</title>
+<link rel="stylesheet" href="background.css">
+</head>
+<body>
+<header>
+  <h1>Non Veg Menu</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="QR Code.html">Home</a></li>
+    <li><a href="tiffins.html">Tiffins</a></li>
+    <li><a href="vege.html">Veg</a></li>
+    <li><a href="non veg.html">Non-Veg</a></li>
+    <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+    <li><a href="cooldrinks.html">Cool Drinks</a></li>
+    <li><a href="ice cream.html">Ice Creams</a></li>
+    <li><a href="payment.html">Payment</a></li>
+  </ul>
+</nav>
+  <form id="orderForm">
+    <div class="menu-item" data-price="150">
+      <img src="images/grilled chicken.jpg" alt="Grilled Chicken" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Grilled Chicken</h3>
+        <p>₹300 per piece</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item1Qty">Qty:</label>
+        <input type="number" id="item1Qty" name="grilledChicken" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="180">
+      <img src="images/fried chicken.jpg" alt="Fried Chicken" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Fried Chicken</h3>
+        <p>₹250 per piece</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item2Qty">Qty:</label>
+        <input type="number" id="item2Qty" name="friedChicken" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="220">
+      <img src="images/butter chicken.jpg" alt="Butter Chicken" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Butter Chicken</h3>
+        <p>₹250 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item3Qty">Qty:</label>
+        <input type="number" id="item3Qty" name="butterChicken" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="200">
+      <img src="images/chicken curry.jpg" alt="Chicken Curry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Chicken Curry</h3>
+        <p>₹200 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item4Qty">Qty:</label>
+        <input type="number" id="item4Qty" name="chickenCurry" min="0" value="0" />
+      </div>
+    </div>
+ <div class="menu-item" data-price="220">
+      <img src="images/chicken biryani.jpg" alt="Chicken Biryani" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Chicken Biryani</h3>
+        <p>₹250 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item5Qty">Qty:</label>
+        <input type="number" id="item5Qty" name="Chicken Biryani" min="0" value="0" />
+      </div>
+     </div>
+    <div class="menu-item" data-price="200">
+      <img src="images/chicken kabab.jpg" alt="Chicken kabab" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Chicken kabab</h3>
+        <p>₹200 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item6Qty">Qty:</label>
+        <input type="number" id="item6Qty" name="chickenkabab" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="200">
+      <img src="images/chicken wings.jpg" alt="Chicken wings" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Chicken wings</h3>
+        <p>₹200 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item7Qty">Qty:</label>
+        <input type="number" id="item7Qty" name="chickenwings" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="200">
+      <img src="images/chicken nuggets.jpg" alt="Chicken nuggets" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Chicken nuggets</h3>
+        <p>₹250 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item8Qty">Qty:</label>
+        <input type="number" id="item8Qty" name="chickennuggets" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="200">
+      <img src="images/boti curry.jpg" alt=">Boti curry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Boti curry</h3>
+        <p>₹500 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item9Qty">Qty:</label>
+        <input type="number" id="item9Qty" name="Boticurry" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="200">
+      <img src="images/egg biryani.jpg" alt="Egg biryani" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Egg biryani</h3>
+        <p>₹200 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item10Qty">Qty:</label>
+        <input type="number" id="item10Qty" name="Eggbiryani" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="200">
+      <img src="images/egg curry.jpg" alt="Egg curry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Egg curry</h3>
+        <p>₹150 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item11Qty">Qty:</label>
+        <input type="number" id="item11Qty" name="Egg curry" min="0" value="0" />
+      </div>
+    </div>
+    
+<div class="menu-item" data-price="200">
+      <img src="images/fish curry.jpg" alt="Fish curry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Fish curry</h3>
+        <p>₹300 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item12Qty">Qty:</label>
+        <input type="number" id="item12Qty" name="Fish curry" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="200">
+      <img src="images/fish fry.jpg" alt="Fish fry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Fish fry</h3>
+        <p>₹250 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item13Qty">Qty:</label>
+        <input type="number" id="item13Qty" name="Fish fry" min="0" value="0" />
+      </div>
+    </div>
+
+<div class="menu-item" data-price="200">
+      <img src="images/mutton biryani.jpg" alt="Mutton Biryani" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Mutton Biryani</h3>
+        <p>₹600 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item14Qty">Qty:</label>
+        <input type="number" id="item14Qty" name="Mutton Biryani" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="200">
+      <img src="images/prawns biryani.jpg" alt="Prawns Biryani" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Prawns Biryani</h3>
+        <p>₹500 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="item15Qty">Qty:</label>
+        <input type="number" id="item15Qty" name="Prawns Biryani" min="0" value="0" />
+      </div>
+    </div>
+    
+    <button type="button" onclick="goNext('vege.html')">previous</button>
+    <button type="button" onclick="goNext('snacks&desserts.html')">Next</button>
+<button type="butto" id="orderBtn" class="submit-btn">Place Order</button>
+<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
+<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
+<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
+
+<div class="summary">
+  <div>Selected Items: <span id="selectedCount">0</span></div>
+  <div>Total Amount: ₹<span id="totalAmount">0</span></div>
+</div>
+
+<script src="script.js"></script>
+<script src="common.js"></script>
+</form>
+</main>
+</body>
+</html>
