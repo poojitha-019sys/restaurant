@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Page</title>
+  <link rel="stylesheet" href="background.css">
+  <style>
+    /* Simple loader popup */
+    #loader {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 1.5em;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="QR Code.html">Home</a></li>
+      <li><a href="tiffins.html">Tiffins</a></li>
+      <li><a href="vege.html">Veg</a></li>
+      <li><a href="non veg.html">Non-Veg</a></li>
+      <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+      <li><a href="cooldrinks.html">Cool Drinks</a></li>
+      <li><a href="ice cream.html">Ice Creams</a></li>
+      <li><a href="payment.html">Payment</a></li>
+    </ul>
+  </nav>
+
+  <h2>Select Table Number</h2>
+  <input type="number" id="tableNumberInput" placeholder="Enter Table Number" min="1" required />
+
+  <h2>Payment Summary</h2>
+  <div id="orderSummary"></div>
+  <div id="totalAmount"></div>
+
+  <h2>Payment Details</h2>
+  <input type="text" id="cardName" placeholder="Name on Card" required />
+  <input type="text" id="cardNumber" placeholder="Card Number (16 digits)" maxlength="16" required />
+  <input type="month" id="expiryDate" required />
+  <input type="password" id="cvv" placeholder="CVV (3 digits)" maxlength="3" required />
+  <button id="payBtn">Pay Now</button>
+
+  <!-- Loader popup -->
+  <div id="loader">💳 Processing Payment...</div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getDatabase, ref, get, set } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+    // ✅ Replace this with your real Firebase config
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_APP.firebaseapp.com",
+      databaseURL: "https://YOUR_APP-default-rtdb.firebaseio.com",
+      projectId: "YOUR_APP",
+      storageBucket: "YOUR_APP.appspot.com",
+      messagingSenderId: "YOUR_SENDER_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Catch runtime errors
+    window.addEventListener("error", (e) => {
+      console.error("⚠️ Runtime Error:", e.message);
+      alert("⚠️ Error occurred: " + e.message);
+    });
+
+    // Load order data and display summary
+    window.addEventListener('load', () => {
+      const order = JSON.parse(localStorage.getItem("orderDetails"));
+      const summaryDiv = document.getElementById("orderSummary");
+      const totalDiv = document.getElementById("totalAmount");
+
+      if (!order) {
+        summaryDiv.innerHTML = "<p>No items selected.</p>";
+        totalDiv.innerHTML = "";
+        alert("⚠️ No order found. Please go back and order first.");
+        return;
+      }
+
+      const savedTable = localStorage.getItem("tableNumber");
+      if (savedTable) {
+        document.getElementById("tableNumberInput").value = savedTable;
+      }
+
+      displayOrderSummary(order, savedTable);
+
+      document.getElementById("payBtn").addEventListener("click", payNow);
+    });
+
+    // Display the order summary
+    function displayOrderSummary(order, tableNumber) {
+      const summaryDiv = document.getElementById("orderSummary");
+      const totalDiv = document.getElementById("totalAmount");
+
+      let itemListHTML = '<ul>';
+      order.items.forEach(item => {
+        itemListHTML += `<li>${item.name} × ${item.qty} = ₹${item.total}</li>`;
+      });
+      itemListHTML += '</ul>';
+
+      summaryDiv.innerHTML = `
+        <p><strong>Table Number:</strong> ${tableNumber || '(Not entered yet)'}</p>
+        <p><strong>Total Items:</strong> ${order.totalItems}</p>
+        ${itemListHTML}
+      `;
+      totalDiv.textContent = `Total Amount to Pay: ₹${order.totalAmount}`;
+    }
+
+    // Save table number instantly when entered
+    document.getElementById("tableNumberInput").addEventListener("input", (e) => {
+      localStorage.setItem("tableNumber", e.target.value);
+      const order = JSON.parse(localStorage.getItem("orderDetails"));
+      displayOrderSummary(order, e.target.value);
+    });
+
+    // Handle payment process
+    async function payNow() {
+      try {
+        const loader = document.getElementById("loader");
+        loader.style.display = "flex";
+
+        const order = JSON.parse(localStorage.getItem("orderDetails"));
+        const tableNumber = document.getElementById("tableNumberInput").value.trim();
+        const cardName = document.getElementById("cardName").value.trim();
+        const cardNumber = document.getElementById("cardNumber").value.trim();
+        const expiryDate = document.getElementById("expiryDate").value;
+        const cvv = document.getElementById("cvv").value.trim();
+
+        if (!order) throw new Error("No order found.");
+        if (!tableNumber) throw new Error("Please enter your table number.");
+        if (!cardName || !cardNumber.match(/^\d{16}$/) || !expiryDate || !cvv.match(/^\d{3}$/))
+          throw new Error("Please enter valid payment details.");
+
+        const tableRef = ref(db, "tables/" + tableNumber);
+        const snapshot = await get(tableRef);
+
+        if (snapshot.exists()) {
+          alert(`🚫 Table ${tableNumber} is already occupied!`);
+          loader.style.display = "none";
+          return;
+        }
+
+        await set(tableRef, {
+          reserved: true,
+          name: cardName,
+          amount: order.totalAmount,
+          items: order.items,
+          totalItems: order.totalItems,
+          time: new Date().toISOString()
+        });
+
+        loader.style.display = "none";
+        alert(`✅ Payment Successful!
+Amount Paid: ₹${order.totalAmount}
+Table Number: ${tableNumber}
+Thank you, ${cardName}!`);
+
+        localStorage.removeItem("orderDetails");
+        localStorage.removeItem("tableNumber");
+        window.location.href = "QR Code.html";
+      } catch (err) {
+        console.error("🔥 Payment Error:", err);
+        alert("❌ Payment failed: " + err.message);
+        document.getElementById("loader").style.display = "none";
+      }
+    }
+  </script>
+</body>
+</html>
