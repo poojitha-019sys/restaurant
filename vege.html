@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Vegetarian Menu - Restaurant</title>
+<link rel="stylesheet" href="background.css">
+</head>
+<body>
+<header>
+  <h1>Indian Vegetarian Delights</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="QR Code.html">Home</a></li>
+    <li><a href="tiffins.html">Tiffins</a></li>
+    <li><a href="vege.html">Veg</a></li>
+    <li><a href="non veg.html">Non-Veg</a></li>
+    <li><a href="snacks&desserts.html">Snacks & Desserts</a></li>
+    <li><a href="cooldrinks.html">Cool Drinks</a></li>
+    <li><a href="ice cream.html">Ice Creams</a></li>
+    <li><a href="payment.html">Payment</a></li>
+  </ul>
+</nav>
+<main>
+<form id="vegOrderForm">
+    <div class="menu-item" data-price="120">
+      <img src="images/panner butter masala.jpg" alt="Paneer Butter Masala" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Paneer Butter Masala</h3>
+        <p>₹120 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty1">Qty:</label>
+        <input type="number" id="qty1" name="paneerButterMasala" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="100">
+      <img src="images/veg manchurian.jpg" alt="veg manchurian" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>veg manchurian</h3>
+        <p>₹100 per plate</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty2">Qty:</label>
+        <input type="number" id="qty2" name="veg manchurian" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="90">
+      <img src="images/aloo gobi.jpg" alt="Aloo Gobi" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Aloo Gobi</h3>
+        <p>₹90 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty3">Qty:</label>
+        <input type="number" id="qty3" name="alooGobi" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="90">
+      <img src="images/full meals.jpg" alt="full meals" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>full meals</h3>
+        <p>₹50 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty4">Qty:</label>
+        <input type="number" id="qty4" name="full meals" min="0" value="0" />
+      </div>
+    </div>
+<div class="menu-item" data-price="90">
+      <img src="images/veg pizza.jpg" alt="VEG PIZZA" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>VEG PIZZA</h3>
+        <p>₹90 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty5">Qty:</label>
+        <input type="number" id="qty5" name="veg pizza" min="0" value="0" />
+      </div>
+    </div>
+
+    <div class="menu-item" data-price="80">
+      <img src="images/dal tadkha.jpg" alt="Dal Tadka" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Dal Tadka</h3>
+        <p>₹80 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty6">Qty:</label>
+        <input type="number" id="qty6" name="dalTadka" min="0" value="0" />
+      </div>
+    </div>
+ <div class="menu-item" data-price="80">
+      <img src="images/veg biryani.jpg" alt="veg biryani" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Vegetable biryani</h3>
+        <p>₹120 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty7">Qty:</label>
+        <input type="number" id="qty7" name="veg biryani" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="80">
+      <img src="images/palak paneer.jpg" alt="Palak paneer" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Palak paneer</h3>
+        <p>₹40 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty8">Qty:</label>
+        <input type="number" id="qty8" name="Palak paneer" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="80">
+      <img src="images/veg curry.jpg" alt="Veg curry" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Veg curry</h3>
+        <p>₹50 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty9">Qty:</label>
+        <input type="number" id="qty9" name="Veg curry" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="80">
+      <img src="images/veg cutlets.jpg" alt="Veg cutlets" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Veg cutlets</h3>
+        <p>₹120 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty10">Qty:</label>
+        <input type="number" id="qty10" name="Veg cutlets" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="80">
+      <img src="images/veg fridrice.jpg" alt="veg friedrice" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Veg friedrice</h3>
+        <p>₹80 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty11">Qty:</label>
+        <input type="number" id="qty11" name="veg friedrice" min="0" value="0" />
+      </div>
+    </div>
+    <div class="menu-item" data-price="80">
+      <img src="images/veg pulao.jpg" alt="veg pulao" width="509" height="339"/>
+      <div class="menu-item-details">
+        <h3>Veg pulao</h3>
+        <p>₹120 per serving</p>
+      </div>
+      <div class="menu-item-actions">
+        <label for="qty12">Qty:</label>
+        <input type="number" id="qty12" name="veg pulao" min="0" value="0" />
+      </div>
+    </div>
+    
+    <button type="button" onclick="goNext('tiffins.html')">previous</button>
+    <button type="button" onclick="goNext('non veg.html')">Next</button>
+    <button type="button" id="orderBtn" class="submit-btn">Place Order</button> 
+
+<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
+<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
+<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
+
+
+<div class="summary">
+  <div>Selected Items: <span id="selectedCount">0</span></div>
+  <div>Total Amount: ₹<span id="totalAmount">0</span></div>
+</div>
+<script src="script.js"></script>
+<script src="common.js"></script>
+</form>
+</main>
+</body>
+</html>
