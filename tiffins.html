@@ -10,24 +10,6 @@
 <header>
   <h1>Tiffin Menu - Delicious Indian Tiffins</h1>
 </header>
-<script>
-  function addItem(name, price) {
-      let cart = JSON.parse(localStorage.getItem("cart")) || [];
-      // Prevent duplicate entry
-      if (!cart.find(item => item.name === name)) {
-        cart.push({ name, price });
-      }
-      localStorage.setItem("cart", JSON.stringify(cart));
-    }
-
-    function goNext(page) {
-      window.location.href = page;
-    }
-
-    function submitOrder() {
-      window.location.href = "payment.html"; // Go to summary page
-    }
-  </script>
 <nav>
   <ul>
     <li><a href="index.html">Home</a></li>
@@ -193,9 +175,6 @@
 
     <button type="button" onclick="goNext('non veg.html')">Next</button>
 <button type="button" onclick="submitOrder()">Submit</button>
-<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
-<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
-<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
 
 <div class="summary">
   <div>Selected Items: <span id="selectedCount">0</span></div>
@@ -210,62 +189,5 @@
 
 <script src="script.js"></script>
 <script src="common.js"></script>
-  <script>
-function saveOrderFromPage() {
-  const items = [];
-  let totalAmount = 0;
-  let totalItems = 0;
-
-  document.querySelectorAll(".menu-item").forEach(item => {
-    const name = item.querySelector("h3").textContent;
-    const price = parseFloat(item.getAttribute("data-price"));
-    const qty = parseInt(item.querySelector("input[type='number']").value) || 0;
-
-    if (qty > 0) {
-      items.push({
-        name,
-        price,
-        qty,
-        total: price * qty
-      });
-      totalAmount += price * qty;
-      totalItems += qty;
-    }
-  });
-
-  // 🔹 Get existing order (from other pages)
-  const existingOrder = JSON.parse(localStorage.getItem("orderItems")) || [];
-
-  // 🔹 Merge new items (replace if already exists)
-  items.forEach(newItem => {
-    const existingItem = existingOrder.find(i => i.name === newItem.name);
-    if (existingItem) {
-      existingItem.qty += newItem.qty;
-      existingItem.total += newItem.total;
-    } else {
-      existingOrder.push(newItem);
-    }
-  });
-
-  // 🔹 Save merged order
-  localStorage.setItem("orderItems", JSON.stringify(existingOrder));
-
-  console.log("✅ Saved items:", existingOrder);
-}
-
-// Next page navigation (saves before going)
-function goNext(page) {
-  saveOrderFromPage();
-  window.location.href = page;
-}
-
-// Go to payment page (save + redirect)
-function submitOrder() {
-  saveOrderFromPage();
-  window.location.href = "payment.html";
-}
-</script>
-
-
 </body>
 </html>
