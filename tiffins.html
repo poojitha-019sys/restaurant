@@ -173,8 +173,11 @@
     </div>
 </main>
 
-    <button type="button" onclick="goNext('non veg.html')">Next</button>
+    <button type="button" onclick="goNext('vege.html')">Next</button>
 <button type="button" onclick="submitOrder()">Submit</button>
+<!-- Add this inside your <form id="tiffinForm"> BEFORE the Place Order button -->
+<label for="tableNumber" style="font-weight:600;">Table Number:</label><br />
+<input type="number" id="tableNumber" name="tableNumber" min="1" placeholder="Enter your table number" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem; border: 1.5px solid #bf360c; border-radius: 6px;" required />
 
 <div class="summary">
   <div>Selected Items: <span id="selectedCount">0</span></div>
